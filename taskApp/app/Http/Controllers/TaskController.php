@@ -96,14 +96,26 @@ class TaskController extends Controller
     {
         $validated = $request->validate([
             'task_name' => 'required|string|max:255',
-            
+            'task_location' => 'nullable|string|max:255',
+            'time_complexity' => 'required|integer|min:1|max:5',
+            'materials_required' => 'nullable|string',
+            'deadline' => 'nullable|date',
+            'priority' => 'nullable|integer|min:1|max:3',
+            'category' => 'nullable|string|max:255',
+        ]);
+
+        Task::create($validated);
+        return redirect()->route('tasks.index')->with('success','Task updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $task)
+    public function destroy(string $id)
     {
-        //
+        $task = Task::findOrFail($id);
+        $task->delete();
+
+        return redirect()->route('tasks.index')->with('success','Task deleted successfully!');
     }
 }

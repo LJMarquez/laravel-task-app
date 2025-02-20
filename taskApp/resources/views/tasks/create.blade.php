@@ -63,7 +63,7 @@
     - Add a link or button for "Cancel" that routes back to the homepage or tasks list.
     -->
     <button type="submit">Submit</button>
-    <button type="button"><a href="/a">Cancel</a></button>
+    <button type="button"><a href="/">Cancel</a></button>
     </div>
     </form>
     </div>
