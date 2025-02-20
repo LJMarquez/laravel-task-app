@@ -82,17 +82,21 @@ class TaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $task)
+    public function edit(string $id)
     {
-        //
+        $tasks = Task::findOrFail($id);
+
+        return view('tasks.edit', compact('task'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'task_name' => 'required|string|max:255',
+            
     }
 
     /**
