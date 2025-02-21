@@ -84,10 +84,11 @@ class TaskController extends Controller
      */
     public function edit(string $id)
     {
-        $tasks = Task::findOrFail($id);
+        $task = Task::findOrFail($id);
 
         return view('tasks.edit', compact('task'));
     }
+
 
     /**
      * Update the specified resource in storage.
