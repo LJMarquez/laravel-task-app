@@ -1,23 +1,20 @@
 <?php
 
 namespace Database\Seeders;
-
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
-class DatabaseSeeder extends Seeder
+use App\Models\Task;
+class TaskSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
-    {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-    }
+public function run(): void
+{
+Task::create([
+'task_name' => 'Take out trash',
+'task_location' => 'Kitchen',
+'time_complexity' => 1, // (1 => ~10 min, 2 => ~30 min, etc.)
+'materials_required'=> 'Trash bags',
+'deadline' => '2025-02-20 10:00:00',
+'priority' => 2, // (1 => low, 2 => medium, 3 => high)
+'category' => 'chores'
+]);
+}
 }
